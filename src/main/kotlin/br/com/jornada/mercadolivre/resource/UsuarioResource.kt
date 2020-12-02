@@ -1,6 +1,6 @@
 package br.com.jornada.mercadolivre.resource
 
-import br.com.jornada.mercadolivre.domain.request.NovoAutorReqeust
+import br.com.jornada.mercadolivre.domain.request.NovoAutorRequest
 import io.swagger.v3.oas.annotations.tags.Tag
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
@@ -25,7 +25,7 @@ class UsuarioResource(
     @Tag(name = "Autores")
     @PostMapping
     @Transactional
-    fun criandoAutor(@RequestBody @Valid novoAutorRequest: NovoAutorReqeust, uriComponentsBuilder: UriComponentsBuilder):ResponseEntity<String>{
+    fun criandoAutor(@RequestBody @Valid novoAutorRequest: NovoAutorRequest, uriComponentsBuilder: UriComponentsBuilder):ResponseEntity<String>{
         logger.info("Requisição recebida para criar um novo autor: $novoAutorRequest")
 
         val novoAutor = novoAutorRequest.toModel()

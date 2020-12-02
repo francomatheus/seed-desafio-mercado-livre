@@ -1,0 +1,1 @@
+ALTER TABLE autor ADD UNIQUE (login)
