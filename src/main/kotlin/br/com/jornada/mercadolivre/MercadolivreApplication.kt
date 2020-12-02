@@ -2,6 +2,7 @@ package br.com.jornada.mercadolivre
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
+import java.security.Security
 
 @SpringBootApplication
 class MercadolivreApplication

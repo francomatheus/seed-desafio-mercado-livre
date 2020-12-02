@@ -60,6 +60,38 @@
 			<artifactId>flyway-core</artifactId>
 		</dependency>
 
+		<!-- OpenTracing -->
+		<dependency>
+			<groupId>io.opentracing.contrib</groupId>
+			<artifactId>opentracing-spring-cloud-starter</artifactId>
+			<version>0.5.9</version>
+		</dependency>
+		<dependency>
+			<groupId>io.opentracing.contrib</groupId>
+			<artifactId>opentracing-spring-jaeger-web-starter</artifactId>
+			<version>3.2.2</version>
+		</dependency>
+
+		<!-- Documentação -->
+		<dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-ui</artifactId>
+			<version>1.5.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-kotlin</artifactId>
+			<version>1.5.0</version>
+		</dependency>
+
+		<!-- Segurança -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-security</artifactId>
+			<version>2.3.5.RELEASE</version>
+		</dependency>
+
+
 		<!-- Kotlin -->
 		<dependency>
 			<groupId>com.fasterxml.jackson.module</groupId>
