@@ -1,6 +1,5 @@
 package br.com.jornada.mercadolivre.annotation
 
-import br.com.jornada.mercadolivre.domain.model.Autor
 import br.com.jornada.mercadolivre.validator.ValorUnicoValidator
 import javax.validation.Constraint
 import kotlin.reflect.KClass

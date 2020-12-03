@@ -1,16 +1,16 @@
 package br.com.jornada.mercadolivre.domain.request
 
 import br.com.jornada.mercadolivre.annotation.ValorUnico
-import br.com.jornada.mercadolivre.domain.model.Autor
+import br.com.jornada.mercadolivre.domain.model.Usuario
 import org.hibernate.validator.constraints.Length
 import javax.validation.constraints.Email
 import javax.validation.constraints.NotBlank
 
-class NovoAutorRequest(
+class NovoUsuarioRequest(
 
         @field: NotBlank
         @field: Email
-        @field: ValorUnico(fieldName = "login", className = "Autor")
+        @field: ValorUnico(fieldName = "login", className = "Usuario")
         val login: String,
 
         @field: NotBlank
@@ -18,8 +18,8 @@ class NovoAutorRequest(
         val senha: String
 ) {
 
-    fun toModel(): Autor {
-        return Autor(login = this.login, senha = senha)
+    fun toModel(): Usuario {
+        return Usuario(login = login, senha = senha)
     }
 
     override fun toString(): String {

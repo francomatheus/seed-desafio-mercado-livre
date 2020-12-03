@@ -1,1 +1,1 @@
-ALTER TABLE autor ADD UNIQUE (login)
+ALTER TABLE usuario ADD UNIQUE (login)
