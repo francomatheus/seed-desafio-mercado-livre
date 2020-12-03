@@ -17,9 +17,7 @@ import javax.validation.constraints.NotNull
 
 @Entity
 @Table(name = "usuario")
-class Usuario(login: String,
-              senha: String
-): UserDetails {
+class Usuario(login: String,senha: String): UserDetails {
 
     constructor(): this(
             "", ""

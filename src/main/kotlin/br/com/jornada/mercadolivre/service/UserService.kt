@@ -1,6 +1,7 @@
 package br.com.jornada.mercadolivre.service
 
 import br.com.jornada.mercadolivre.repository.UsuarioRepository
+import org.springframework.security.core.userdetails.User
 import org.springframework.security.core.userdetails.UserDetails
 import org.springframework.security.core.userdetails.UserDetailsService
 import org.springframework.security.core.userdetails.UsernameNotFoundException
@@ -18,6 +19,6 @@ class UserService(
             return throw UsernameNotFoundException("Usuario não achado para o login informado: $login")
         }
 
-        return usuarioBuscadoPeloLogin
+        return User(usuarioBuscadoPeloLogin.username, usuarioBuscadoPeloLogin.senha, arrayListOf())
     }
 }
