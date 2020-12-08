@@ -1,9 +1,6 @@
 package br.com.jornada.mercadolivre.configuration.security.jwt
 
-import br.com.jornada.mercadolivre.domain.model.Usuario
 import br.com.jornada.mercadolivre.repository.UsuarioRepository
-import io.jsonwebtoken.Jws
-import io.jsonwebtoken.JwtParser
 import io.jsonwebtoken.Jwts
 import io.jsonwebtoken.SignatureAlgorithm
 import org.slf4j.Logger
@@ -15,6 +12,7 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.Authentication
 import org.springframework.security.core.userdetails.User
 import org.springframework.stereotype.Service
+import org.springframework.util.Assert
 import org.springframework.web.server.ResponseStatusException
 import java.util.*
 
@@ -49,7 +47,9 @@ class TokenManager(
     fun isValid(token: String): Boolean{
         logger.info("Verificando se token é valido")
         try {
-            Jwts.parser().setSigningKey(secretTokenKey).parse(token)
+            val tokenParsed = Jwts.parser().setSigningKey(secretTokenKey).parseClaimsJws(token)
+            getUserFromHeader(token)
+
             logger.info("Token é valido: $token, ")
             return true
         }catch (exception: Exception){
@@ -66,6 +66,7 @@ class TokenManager(
             val loginUsuario = tokenParser.body.subject
 
             val usuarioFromToken = usuarioRepository.findByLogin(loginUsuario)
+            Assert.notNull(usuarioFromToken,"Usuario não encontrado no banco de dados.")
 
             logger.info("Usuario dono do token: $loginUsuario")
 
@@ -75,4 +76,5 @@ class TokenManager(
             return throw ResponseStatusException(HttpStatus.BAD_REQUEST,"Token invalido.")
         }
     }
+
 }
