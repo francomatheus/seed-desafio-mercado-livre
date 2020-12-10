@@ -45,11 +45,11 @@ class ProdutoResource(
         }
         val novoProduto = novoProdutoRequest.toModel(categoriaRepository, usuarioDono)
 
-        val produto = produtoRepository.save(novoProduto)
+        val produtoSalvo = produtoRepository.save(novoProduto)
 
         logger.info("Usuario Logado: $dadosUsuario")
         return ResponseEntity
-                .created(uriComponentsBuilder.path("/v1/produtos/{id}").buildAndExpand(produto.id).toUri())
+                .created(uriComponentsBuilder.path("/v1/produtos/{id}").buildAndExpand(produtoSalvo.id).toUri())
                 .build()
     }
 }

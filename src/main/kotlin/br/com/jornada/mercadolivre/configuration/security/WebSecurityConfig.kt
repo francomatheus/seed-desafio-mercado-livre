@@ -38,7 +38,7 @@ class WebSecurityConfig(
         http.authorizeRequests()
                     .antMatchers("/actuator/**").permitAll()
                     .antMatchers("/actuator/prometheus").permitAll()
-                    .antMatchers("/swagger-ui.html","/swagger-ui/**", "/v3/api-docs/**").permitAll()
+                    .antMatchers("/swagger-ui.html","/swagger-ui./index.html","/swagger-ui/**", "/v3/api-docs/**").permitAll()
                     .antMatchers(HttpMethod.POST,"/v1/usuarios").permitAll()
                     .antMatchers(HttpMethod.POST,"/v1/login").permitAll()
                     .anyRequest().authenticated()

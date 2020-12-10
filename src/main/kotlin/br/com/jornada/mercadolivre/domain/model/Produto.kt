@@ -55,5 +55,13 @@ class Produto(
     ){ }
 
     @Id
-    var id: String? = UUID.randomUUID().toString()
+    var id: String = UUID.randomUUID().toString()
+
+    @ElementCollection
+    var imagens: MutableList<String> = mutableListOf()
+
+    fun adicionaImagem(imagensNovas: ArrayList<String>){
+        this.imagens.addAll(imagensNovas)
+    }
+
 }
